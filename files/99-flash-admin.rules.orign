@@ -1,0 +1,28 @@
+# все что не добавляется и не usb идет пропускается
+ACTION!="add", GOTO="passthrow"
+
+
+# разрешенные флешки / белый список
+
+#ENV{ID_SERIAL_SHORT}=="AC46EC14", GOTO="allow-flash"
+ATTRS{serial}=="AC46EC14",ATTRS{idVendor}=="058f", ATTRS{idProduct}=="6387", KERNELS=="[0-9]-[0-9]*", GOTO="allow-flash"
+# все остальные отключаем
+
+ATTRS{serial}=="?*", ATTRS{idVendor}=="????", ATTRS{idProduct}=="????", GOTO="deny-flash"
+GOTO="passthrow"
+
+
+# если дошли до этой строки, значит это флешка и она запрещена
+LABEL="deny-flash"
+#SUBSYSTEMS=="usb", RUN="/bin/sh -c 'echo denied %s{manufacturer} %s{product} %s{serial} %E{DEVPATH}::%E{ID_SERIAL}>> /tmp/flash'"
+SUBSYSTEMS=="usb", KERNELS=="[0-9]-[0-9]"  RUN="/usr/bin/python2 /usr/local/sbin/deny-flash.py %E{DEVPATH}"
+#SUBSYSTEMS=="usb", OPTIONS:="ignore_device"
+
+GOTO="passthrow"
+
+LABEL="allow-flash"
+RUN="/bin/sh -c 'echo allow %s{manufacturer} %s{product} %s{serial}  %E{DEVPATH}::%E{ID_SERIAL} >> /tmp/flash'"
+
+
+LABEL="passthrow"
+
