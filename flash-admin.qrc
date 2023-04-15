@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>flash.png</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="autoUSB">icons/1487201364_BT_usb.png</file>
+        <file alias="add_group">icons/1487203916_add_group.png</file>
+        <file alias="add_user_">icons/1487203978_user-add.png</file>
+        <file alias="add_user">icons/1487204075_add_user.png</file>
+        <file alias="add_svt">icons/1487206304_computer_add.png</file>
+        <file alias="edit_user">icons/1487207666_edit_user.png</file>
+        <file alias="del_user">icons/1487207666_remove_user.png</file>
+        <file alias="del_svt">icons/computer_del.png</file>
+        <file alias="edit_svt">icons/computer_edit.png</file>
+        <file alias="add_mni">icons/device_add.png</file>
+        <file alias="del_mni">icons/device_del.png</file>
+        <file alias="edit_mni">icons/device_edit.png</file>
+        <file alias="edit_group">icons/1487203916_edit_group.png</file>
+        <file alias="del_group">icons/1487203916_del_group.png</file>
+        <file alias="deploy-one">icons/deploy-one.png</file>
+        <file alias="deploy-all">icons/deploy-all.png</file>
+    </qresource>
+</RCC>
